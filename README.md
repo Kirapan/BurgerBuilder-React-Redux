@@ -1,3 +1,5 @@
+# React-Redux responsive APP for Building a Burger and Checkout
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
