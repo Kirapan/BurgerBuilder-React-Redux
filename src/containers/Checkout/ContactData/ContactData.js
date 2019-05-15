@@ -93,7 +93,7 @@ class ContactData extends Component {
         formIsValid: false
     }
 
-    orderHandler = async (event) => {
+    orderHandler = (event) => {
         event.preventDefault();
         const formData = {};
         for (let formElementIdentifier in this.state.orderForm) {
@@ -175,9 +175,9 @@ class ContactData extends Component {
 
 const mapStateToProps = state => {
     return {
-        ings: state.ingredients,
-        price: state.totalPrice,
-        loading: state.loading
+        ings: state.burger.ingredients,
+        price: state.burger.totalPrice,
+        loading: state.order.loading
     }
 };
 
