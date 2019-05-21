@@ -18,7 +18,7 @@ const sideDrawer = (props) => {
           <Logo />
         </div>
         <nav className='Overide'>
-          <NavigationItems />
+          <NavigationItems isAuthenticated={props.isAuth}/>
         </nav>
       </div>
     </>
