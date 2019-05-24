@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
+import { userInfo } from 'os';
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
@@ -61,11 +62,12 @@ export const fetchOrdersStart = () => {
     }
 }
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
     return async dispatch => {
         dispatch(fetchOrdersStart());
+        const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
         try {
-            const res = await axios.get('/orders.json?auth=' + token);
+            const res = await axios.get('/orders.json' + queryParams);
             const fetchedOrders = [];
             for(let key in res.data) {
                 fetchedOrders.push({
