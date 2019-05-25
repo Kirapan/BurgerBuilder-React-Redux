@@ -31,7 +31,7 @@ class App extends Component {
           <Route path='/orders' component={Orders} />
           <Route path='/logout' component={Logout} />
           <Route path='/' exact component={BurgerBuilder} />
-          <Redirect to='/' />
+          { this.props.buildingBurger ? <Redirect to="/checkout" /> : <Redirect to="/" />}
       </Switch>
       )
     }
@@ -48,7 +48,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.token !== null,
+    buildingBurger: state.burger.building
   }
 }
 

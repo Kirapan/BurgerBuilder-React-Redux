@@ -7,15 +7,12 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-// import * as actionTypes from '../../store/actions/actionTypes';
 import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
   state = {
-    purchasing: false,
-    loading: false,
-    error: false
+    purchasing: false
   }
 
   componentDidMount () {
@@ -94,7 +91,7 @@ const mapStateToProps = state => {
     price: state.burger.totalPrice,
     error: state.burger.error,
     purchased: state.order.purchased,
-    isAuthenticated: state.auth.token
+    isAuthenticated: state.auth.token !== null
   }
 }
 
